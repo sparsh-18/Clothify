@@ -1,0 +1,47 @@
+<%- include('partials/header') -%>
+
+<div class="content">
+   <div class="container">
+     <h1>ADMIN</h1>
+     <table class="table table-hover col-md-7">
+        <thead style="background-color:#fff;">
+         <!-- <tr>
+           <th scope="col">#</th>
+           <th scope="col">Name</th>
+
+           <th scope="col">Manage</th>
+           <th scope="col"></th>
+         </tr> -->
+        </thead>
+        <tbody style="color:#000;">
+          <%  data.forEach((user) => { %>
+            <tr>
+            <td scope="row">#</td>
+            <td> <%= user.username %> </td>
+            <td></td>
+            <td></td>
+            <td>
+              <form class="col-md-4" action="/admin/adminpass/<%= user.id %>" method="post">
+                <div class="row">
+                  <div class="col-md-4 ">
+                    <input style="background:#e6e6e6" type="password" name="pass" value="">
+                    <button style="margin-top: 15px" class="btn btn-success btn-sm" type="submit" name="button">Change Password</button>
+                  </div>
+                </div>
+
+              </form>
+            </td>
+            <td>
+              <form class="" action="/admin/admindel" method="post">
+                <input type="text" style="display:none;" name="id" value=<%=user.id%>>
+               <button type="submit" class="btn btn-outline-danger" name="button">DELETE</button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+  </table>
+   </div>
+</div>
+
+<%- include('partials/footer') -%>

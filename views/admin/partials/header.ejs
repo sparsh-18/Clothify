@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Admin panel</title>
+    <base href="/">
+    <link rel="stylesheet" href="./css/adminstyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  </head>
+  <body>
+    <input type="checkbox" id="check">
+    <!--header area start-->
+        <header style="z-index: 999">
+            <label for="check">
+              <i class="fas fa-bars" id="sidebar_btn"></i>
+            </label>
+            <div class="left_area">
+              <h3>EXAMPLE<span>NAME</span></h3>
+            </div>
+
+
+            <div class="right_area" >
+              <div style="margin-left:80%;margin-top:-30px;">
+              <a href = "/admin/orderapprove">    <svg style="cursor:pointer;" width="2em"  height="2em" viewBox="0 0 16 16" class="bi bi-chat-left-dots-fill" fill="white" xmlns="http://www.w3.org/2000/svg">
+                   <path fill-rule="evenodd" d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm5 4a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                 </svg> </a>
+                   <span style="color:red;font-size:20px;">
+                     <%= orders%>
+                   </span>
+              </div>
+                <a href="/admin/adminlogout" class="logout_btn">Logout</a>
+            </div>
+        </header>
+        <!--header area end-->
+        <!--sidebar start-->
+        <div class="sidebar">
+            <center>
+              <!-- <img src="1.png" class="profile_image" alt=""> -->
+              <h4></h4>
+            </center>
+            <a href="/admin"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+            <a style="color:#fff" id = "parentmenu"><i class="fas fa-cogs"></i><span>Components</span></a>
+            <div id="submenu" style="display:none;">
+              <a href="/admin/addproduct"><span>Add products</span></a>
+              <a href="/admin/area"><span>Add Delivery Area</span></a>
+              <a href="/admin/details"><span>Contact Details</span></a>
+              <!-- <a href="/admin/customers"><span>All Customers</span></a> -->
+
+            </div>
+            <a style="color:#fff" id = "parentmenu2"><i class="fas fa-cogs"></i><span>Users</span></a>
+            <div id="submenu2" style="display:none;">
+              <a href="/admin/custdel"><span>Customers</span></a>
+              <a href="/admin/admindel"><span>Admins</span></a>
+            </div>
+            <!-- <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a> -->
+        </div>
+    <!--sidebar end-->

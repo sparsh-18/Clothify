@@ -1,0 +1,41 @@
+<%- include('partials/header') -%>
+
+<div class="content">
+   <div class="container">
+     <h1>CUSTOMER Identity...</h1>
+     <div class="tablemy" style="overflow-y:auto;height:600px;">
+       <table class="table table-hover">
+          <thead style="background-color:#fff;">
+           <tr>
+             <th scope="col">#</th>
+             <th scope="col">Name</th>
+             <th scope="col">Phone</th>
+             <th scope="col">Address</th>
+             <th scope="col">Pincode</th>
+             <th scope="col">Manage</th>
+           </tr>
+          </thead>
+          <tbody style="color:#000;">
+          <%  data.forEach((user) => { %>
+            <tr>
+            <td scope="row">#</td>
+            <td> <%= user.fullname %> </td>
+            <td> <%= user.phone %> </td>
+            <td> <%= user.address %> </td>
+            <td> <%= user.pincode %> </td>
+            <td>
+              <form class="" action="/admin/custdel" method="post">
+                <input type="text" style="display:none;" name="id" value=<%=user.id%>>
+               <button type="submit" class="btn btn-outline-danger" name="button">DELETE</button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+          </tbody>
+    </table>
+     </div>
+
+   </div>
+</div>
+
+<%- include('partials/footer') -%>

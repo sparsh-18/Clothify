@@ -1,0 +1,167 @@
+<%- include('../partials/header'); -%>
+
+<style media="screen">
+  .my-custom-scrollbar {
+position: relative;
+height: 400px;
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+}
+</style>
+
+<div class="container">
+  <h3 style="margin-left:100px;margin-top:80px;">Profile ..</h3>
+  <div class="row shadow" style="margin:50px;height:500px;">
+    <!-- <div class="col" style="background-color:blue;text-align:center;">
+      <svg width="30em" height="30em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+        </svg>
+    </div> -->
+    <div class="col" style="padding:8%;">
+      <!-- <div class="card" style="padding:8%;margin:80px;"> -->
+      <div class="row">
+         <div class="col-8">
+           <p>USERNAME : <span style="color:#000" ><%= data[0].fullname %></span></p>
+         </div>
+         <div class="col-4">
+           <svg id="edit1" style="cursor:pointer;" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"/>
+            <path fill-rule="evenodd" d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
+            </svg>
+         </div>
+      </div>
+      <form id="form1" style="display:none;" action="/profilen" method="post">
+        <input type="text" style="display:none;" name="id" value=<%= data[0].id %>>
+         <input type="text" name="name" value="" placeholder="New Name .." autocomplete="off">
+         <input type="submit" name="" value="EDIT">
+      </form>
+      <div class="row">
+        <div class="col-8">
+          <p>PHONE : <span style="color:#000" ><%= data[0].phone %></span></p>
+        </div>
+        <div class="col-4">
+          <svg id="edit2" style="cursor:pointer;display:none;" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+           <path fill-rule="evenodd" d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"/>
+           <path fill-rule="evenodd" d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
+           </svg>
+        </div>
+      </div>
+      <form id="form2" style="display:none;" action="/profilep" method="post">
+        <input type="text" style="display:none;" name="id" value=<%= data[0].id %>>
+         <input type="text" name="phone" value="" placeholder="New Phone .." autocomplete="off">
+         <input type="submit" name="" value="EDIT">
+      </form>
+      <div class="row">
+         <div class="col-8">
+           <p>ADDRESS : <span style="color:#000" ><%= data[0].address %></span></p>
+         </div>
+         <div class="col-4">
+           <svg id="edit3" style="cursor:pointer;" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"/>
+            <path fill-rule="evenodd" d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
+            </svg>
+         </div>
+      </div>
+      <form id="form3" style="display:none;" action="/profilea" method="post">
+        <input type="text" style="display:none;" name="id" value=<%= data[0].id %>>
+         <input type="text" name="address" value="" placeholder="New Address .." autocomplete="off">
+         <input type="submit" name="" value="EDIT">
+      </form>
+      <div class="row">
+         <div class="col-8">
+           <p>PINCODE : <span style="color:#000" ><%= data[0].pincode %></span></p>
+         </div>
+         <div class="col-4">
+           <svg id="edit4" style="cursor:pointer;" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"/>
+            <path fill-rule="evenodd" d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
+            </svg>
+         </div>
+      </div>
+      <form id="form4" style="display:none;" action="/profilepin" method="post">
+        <input type="text" style="display:none;" name="id" value=<%= data[0].id %>>
+         <input type="text" name="pincode" value="" placeholder="New Pincode .." autocomplete="off">
+         <input type="submit" name="" value="EDIT">
+      </form>
+     <!-- </div> -->
+    </div>
+    <div class="col-md-8" style="padding:4%;">
+      <h4>Order History:</h4>
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark">
+        <thead>
+          <tr>
+             <th scope="col">Order Number</th>
+             <th scope="col">Date</th>
+             <th scope="col">Products</th>
+           </tr>
+        </thead>
+        <tbody>
+            <% his.forEach((item, i) => { %>
+                  <tr>
+                    <td> <%= item.orderid%> </td>
+                    <td> <%= item.date %> </td>
+                    <td>
+                        <% var prod = item.products.split(" ").map(Number).splice(1); %>
+                        <%  var qt = item.qty.split(" ").map(Number).splice(1); %>
+                    <ol>
+                  <%    prod.forEach((p, i) => { %>
+                             <% products.forEach((pr) => { %>
+                                <%    if(p == pr.id){ %>
+                                          <li>  <%= pr.name%> <br> qty: <%= qt[i]%> </li> <br>
+                                    <%  } %>
+                          <%   }); %>
+                  <%    }); %>
+                    </ol>
+                    </td>
+                  </tr>
+        <%    }); %>
+
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+   var edit1 = document.getElementById('edit1');
+   var form1 = document.getElementById('form1');
+   edit1.addEventListener('click',function(){
+     if(form1.style.display == 'none'){
+       form1.style.display = 'block';
+     }else{
+       form1.style.display = 'none';
+     }
+   });
+   var edit2 = document.getElementById('edit2');
+   var form2 = document.getElementById('form2');
+   edit2.addEventListener('click',function(){
+     if(form2.style.display == 'none'){
+       form2.style.display = 'block';
+     }else{
+       form2.style.display = 'none';
+     }
+   });
+   var edit3 = document.getElementById('edit3');
+   var form3 = document.getElementById('form3');
+   edit3.addEventListener('click',function(){
+     if(form3.style.display == 'none'){
+       form3.style.display = 'block';
+     }else{
+       form3.style.display = 'none';
+     }
+   });
+   var edit4 = document.getElementById('edit4');
+   var form4 = document.getElementById('form4');
+   edit4.addEventListener('click',function(){
+     if(form4.style.display == 'none'){
+       form4.style.display = 'block';
+     }else{
+       form4.style.display = 'none';
+     }
+   });
+</script>
+
+<%- include('../partials/footer'); -%>

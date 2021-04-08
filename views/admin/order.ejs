@@ -1,0 +1,157 @@
+<%- include('partials/header.ejs') -%>
+
+<div class="content">
+   <div class="container scroll">
+
+  <% p.forEach((order) => { %>
+
+       <div class="card">
+            <div class="card-header">
+               ORDER ID : <%= order.ordercode%>
+            </div>
+            <div class="card-body">
+
+          <% users.forEach((user) => { %>
+              <%  if(user.id == order.user){ %>
+                    <h5 class="card-title">Customer Details ..</h5>
+                    <p class="detail"> <span>Name :</span> <%= user.fullname %> &nbsp &nbsp &nbsp &nbsp
+                        <span>Pincode :</span> <%= user.pincode %> <br>
+                        <span>Phone :</span> <%= user.phone %> &nbsp &nbsp &nbsp &nbsp
+                        <span>Address :</span> <%= user.address %>
+                    </p>
+            <%  } %>
+        <%  })%>
+
+            <hr>
+            <h5 class="card-text">Products..</h5>
+
+            <div class="prod">
+
+          <%  order.pr.forEach((pr,i) => { %>
+
+
+                          <% products.forEach((product) => { %>
+                                <% if(pr == product.id) {  %>
+                                    <p> <%= product.name%> &nbsp&nbsp qty: <%= order.qq[i] %></p>
+                                <% }%>
+                          <% }) %>
+
+          <%    }); %>
+
+
+
+              <!--
+              <p> 2 : Jacket</p>
+              <p> 3 : Watch </p>
+              <p> 4 : Room Freshner </p> -->
+            </div>
+            <hr>
+            <div class="row">
+               <div class="col-md-2">
+                   <a href="/admin/approve/<%= order.oid %>" class="btn btn-primary">Approve</a>
+               </div>
+               <div class="col">
+                   <a href="/admin/decline/<%= order.oid %>" class="btn btn-danger">Decline</a>
+               </div>
+            </div>
+            </div>
+         </div>
+
+    <% }); %>
+
+
+<!--
+
+
+       <div class="card">
+            <div class="card-header">
+               ORDER ID : 2354
+            </div>
+            <div class="card-body">
+            <h5 class="card-title">Customer Details ..</h5>
+            <p class="detail"> <span>Name :</span> Username &nbsp &nbsp &nbsp &nbsp
+                <span>Pincode :</span> 34567 <br>
+                <span>Phone :</span> +912345678987 &nbsp &nbsp &nbsp &nbsp
+                <span>Address :</span> sunshaan gali, khoonkhar muhalla, kaatil
+            </p>
+            <hr>
+            <h5 class="card-text">Products..</h5>
+            <div class="prod">
+              <p> 1 : Shoes</p>
+              <p> 2 : Jacket</p>
+              <p> 3 : Watch </p>
+              <p> 4 : Room Freshner </p>
+            </div>
+            <hr>
+            <div class="row">
+               <div class="col-md-2">
+                   <a href="#" class="btn btn-primary">Approve</a>
+               </div>
+               <div class="col">
+                   <a href="#" class="btn btn-danger">Decline</a>
+               </div>
+            </div>
+            </div>
+         </div><div class="card">
+              <div class="card-header">
+                 ORDER ID : 2354
+              </div>
+              <div class="card-body">
+              <h5 class="card-title">Customer Details ..</h5>
+              <p class="detail"> <span>Name :</span> Username &nbsp &nbsp &nbsp &nbsp
+                  <span>Pincode :</span> 34567 <br>
+                  <span>Phone :</span> +912345678987 &nbsp &nbsp &nbsp &nbsp
+                  <span>Address :</span> sunshaan gali, khoonkhar muhalla, kaatil
+              </p>
+              <hr>
+              <h5 class="card-text">Products..</h5>
+              <div class="prod">
+                <p> 1 : Shoes</p>
+                <p> 2 : Jacket</p>
+                <p> 3 : Watch </p>
+                <p> 4 : Room Freshner </p>
+              </div>
+              <hr>
+              <div class="row">
+                 <div class="col-md-2">
+                     <a href="#" class="btn btn-primary">Approve</a>
+                 </div>
+                 <div class="col">
+                     <a href="#" class="btn btn-danger">Decline</a>
+                 </div>
+              </div>
+              </div>
+           </div><div class="card">
+                <div class="card-header">
+                   ORDER ID : 2354
+                </div>
+                <div class="card-body">
+                <h5 class="card-title">Customer Details ..</h5>
+                <p class="detail"> <span>Name :</span> Username &nbsp &nbsp &nbsp &nbsp
+                    <span>Pincode :</span> 34567 <br>
+                    <span>Phone :</span> +912345678987 &nbsp &nbsp &nbsp &nbsp
+                    <span>Address :</span> sunshaan gali, khoonkhar muhalla, kaatil
+                </p>
+                <hr>
+                <h5 class="card-text">Products..</h5>
+                <div class="prod">
+                  <p> 1 : Shoes</p>
+                  <p> 2 : Jacket</p>
+                  <p> 3 : Watch </p>
+                  <p> 4 : Room Freshner </p>
+                </div>
+                <hr>
+                <div class="row">
+                   <div class="col-md-2">
+                       <a href="#" class="btn btn-primary">Approve</a>
+                   </div>
+                   <div class="col">
+                       <a href="#" class="btn btn-danger">Decline</a>
+                   </div>
+                </div>
+                </div>
+             </div> -->
+   </div>
+</div>
+
+<%- include('partials/footer.ejs') -%>
